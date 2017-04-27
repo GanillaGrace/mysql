@@ -9,11 +9,11 @@
 // The driver should be used via the database/sql package:
 //
 //  import "database/sql"
-//  import _ "github.com/GanillaGrace/mysql"
+//  import _ "github.com/ganillagrace/mysql"
 //
 //  db, err := sql.Open("mysql", "user:password@/dbname")
 //
-// See https://github.com/GanillaGrace/mysql#usage for details
+// See https://github.com/ganillagrace/mysql#usage for details
 package mysql
 
 import (
@@ -43,7 +43,7 @@ func RegisterDial(net string, dial DialFunc) {
 }
 
 // Open new Connection.
-// See https://github.com/GanillaGrace/mysql#dsn-data-source-name for how
+// See https://github.com/ganillagrace/mysql#dsn-data-source-name for how
 // the DSN string is formated
 func (d MySQLDriver) Open(dsn string) (driver.Conn, error) {
 	var err error
@@ -149,7 +149,7 @@ func handleAuthResult(mc *mysqlConn, oldCipher []byte) error {
 	if mc.cfg.AllowOldPasswords && err == ErrOldPassword {
 		// Retry with old authentication method. Note: there are edge cases
 		// where this should work but doesn't; this is currently "wontfix":
-		// https://github.com/GanillaGrace/mysql/issues/184
+		// https://github.com/ganillagrace/mysql/issues/184
 
 		// If CLIENT_PLUGIN_AUTH capability is not supported, no new cipher is
 		// sent and we have to keep using the cipher sent in the init packet.
